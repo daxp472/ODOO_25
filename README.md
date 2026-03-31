@@ -1,108 +1,108 @@
-# 🧠 StackIt – A Minimal Yet Intelligent Q&A Platform
+﻿# 🧠 StackIt – Q&A Platform
 
-StackIt is a modern, community-driven Q&A platform built using the **MERN Stack** (MongoDB, Express.js, React, Node.js). Inspired by platforms like Stack Overflow, StackIt brings in a simplified yet intelligent question-answering experience with a clean, human-first UI and a unique AI-powered assistant.
+A modern, full-stack Q&A platform built with MERN stack. Features user authentication, real-time notifications, voting system, and admin dashboard.
 
-> 💡 Designed and built in under 24 hours during the Odoo Hackathon 2025 🚀
+## 🚀 Quick Start
 
----
-## 🔗 Live Links
+**Windows:**
+```bash
+quick-start.bat
+```
 
-| Platform        | Live Link                                                                 |
-|-----------------|---------------------------------------------------------------------------|
-| 🌐 Frontend     | [Visit StackIt Frontend](https://stackit-odoo.netlify.app/)           |
-| 🛠️ Backend API  | [Visit Backend Live Server](https://stackit-backend-0vzt.onrender.com) |
-| 🎨 Figma Design | [View UI Prototype](https://www.figma.com/design/YKYLqPwlaGQUoMtKWWCjoZ/ODOO_2025?node-id=0-1&t=hA3eKfsJjCwnnFGp-1)           |
+**macOS/Linux:**
+```bash
+chmod +x quick-start.sh
+./quick-start.sh
+```
 
-> ✅ Backend and frontend are **fully connected** and deployed  
-> ✅ Figma showcases the human-made modern UI used in development
+**Manual Setup:**
+```bash
+# Terminal 1: Backend
+cd Backend && npm run seed && npm run dev
 
----
+# Terminal 2: Frontend
+cd frontend && npm run dev
 
-## 📌 Features Overview
+# Open http://localhost:5173
+```
 
-### ✅ Core Features
+## 🔐 Demo Accounts
 
-- 🔐 **User Authentication**
-  - Register/Login with role-based access (User/Admin)
-  - Secured with JWT
+| Role | Email | Password |
+|------|-------|----------|
+| Admin | admin@stackit.dev | password |
+| User | user@stackit.dev | password |
 
-- 📝 **Ask Questions with Rich Text**
-  - Rich text editor (using React Quill)
-  - Supports formatting: bold, italic, lists, links, and code blocks
-  - Tag selector for easy categorization
+## 🌟 Features
 
-- 💬 **Answer System**
-  - Users can post rich-text formatted answers
-  - Each question can have multiple answers
-  - Real-time sorting by votes
+✅ User Authentication (JWT + Bcrypt)  
+✅ Ask Questions with Rich Text Editor  
+✅ Answer System with Voting  
+✅ Real-time Notifications (Socket.io)  
+✅ Tagging & Filtering  
+✅ Reputation System  
+✅ Admin Dashboard  
+✅ Fully Responsive Design  
 
-- ⬆️ **Voting System**
-  - Upvote/downvote answers to promote best solutions
-  - One user = one vote per answer
+## 📦 Tech Stack
 
-- ✅ **Accepted Answers**
-  - Question authors can mark one answer as accepted
-  - Visually highlighted for clarity
+**Frontend:** React 18, TypeScript, Vite, Tailwind CSS, Socket.io  
+**Backend:** Node.js, Express, MongoDB, JWT, Bcrypt  
 
-- 🔔 **Notification System**
-  - Users receive alerts for:
-    - New answers on their questions
-    - Mentions using `@username`
-    - Accepted answers
+## 📚 Documentation
 
-- 🏷️ **Tagging + Filters**
-  - Users can tag questions
-  - Filter by tags for relevant searches
+- [Setup Guide](SETUP_GUIDE.md) - Complete installation & deployment
+- [API Documentation](API_DOCS.md) - All endpoints with examples
+- [Architecture](ARCHITECTURE.md) - System design & data flow
+- [Portfolio Checklist](PORTFOLIO_CHECKLIST.md) - Pre-launch verification
 
-- 👨‍💼 **Admin Dashboard**
-  - View & moderate reported questions/answers
-  - Delete inappropriate content
-  - Export user & content stats (CSV)
+## 🌐 Live Links
 
----
-
-## 🌟 Unique Features (Our Winning Edge 💥)
-
-### 🤖 AI Chatbot Assistant (In-App Guide)
-- Smart helper on "Ask a Question" page
-- Suggests:
-  - Similar existing questions
-  - Tag recommendations
-  - Draft rephrasing assistance
-- Enhances UX for new users
-- Powered by:
-  - Rule-based logic (offline fallback)
-  - OpenAI integration (if API key provided)
-
-### ⭐ Reputation System
-- Dynamic score assigned to every user
-- Points awarded for:
-  - +10: Upvotes on answers
-  - +5: Accepted answers
-  - -2: Downvotes
-- Reputation shown on profile & post cards
-- Encourages meaningful contributions
-- Future Scope: Badges & tiered privileges
-
----
+- **Frontend:** https://stackit-odoo.netlify.app
+- **Backend:** https://stackit-backend-0vzt.onrender.com/api/health
+- **Design:** https://www.figma.com/design/YKYLqPwlaGQUoMtKWWCjoZ/ODOO_2025
 
 ## 📁 Project Structure
 
-```bash
-root/
-├── client/                 # React frontend
-│   ├── components/
-│   ├── pages/
-│   ├── context/
-│   ├── services/
-│   └── App.jsx
-│
-├── server/                 # Node.js backend
-│   ├── controllers/
-│   ├── models/
-│   ├── routes/
-│   ├── middleware/
-│   └── index.js
-│
-├── .env
-└── README.md
+```
+ODOO_25/
+├── Backend/          # Node.js + Express API
+├── frontend/         # React + TypeScript UI
+├── SETUP_GUIDE.md    # Installation guide
+├── API_DOCS.md       # API reference
+└── quick-start.bat   # One-click setup
+```
+
+## 🔒 Security
+
+✅ JWT authentication  
+✅ Bcrypt password hashing (12 rounds)  
+✅ Rate limiting & CORS protection  
+✅ Helmet.js security headers  
+✅ Input validation  
+✅ Role-based access control  
+
+## 📊 API Overview
+
+**Auth:** /auth/register, /auth/login  
+**Questions:** /questions, /questions/:id  
+**Answers:** /answers, /answers/:id/vote  
+**Admin:** /admin/users, /admin/stats  
+
+See [API_DOCS.md](API_DOCS.md) for full reference.
+
+## 🚀 Deployment
+
+**Frontend:** Netlify (auto-deploy from GitHub)  
+**Backend:** Render (auto-deploy from GitHub)  
+**Database:** MongoDB Atlas  
+
+See [SETUP_GUIDE.md](SETUP_GUIDE.md#deployment) for details.
+
+## 📝 License
+
+MIT License - Use freely for portfolio & personal projects
+
+---
+
+Built with ❤️ for Web Developers | March 2026
