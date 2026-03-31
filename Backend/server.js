@@ -19,20 +19,14 @@ dotenv.config();
 
 const app = express();
 
-// ✅ Define allowed origins before using them
-const allowedOrigins = [
-  'http://localhost:5173',
-  'https://stackit-odoo.netlify.app'
-];
-
 // ✅ Create HTTP server
 const server = createServer(app);
 
 // ✅ Initialize Socket.IO with CORS support
 const io = new Server(server, {
   cors: {
-    origin: allowedOrigins,
-    methods: ["GET", "POST"]
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"]
   }
 });
 
@@ -42,16 +36,12 @@ connectDB();
 // ✅ Security middleware
 app.use(helmet());
 
-// ✅ CORS middleware
+// ✅ CORS middleware - Allow all origins
 app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+  credentials: false,
+  optionsSuccessStatus: 200
 }));
 
 // ✅ Rate limiting
